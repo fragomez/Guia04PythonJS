@@ -2,9 +2,16 @@ addEventListener("DOMContentLoaded", (e) => {
     let calcular = document.querySelector("#guia4");
     calcular.addEventListener("submit", (e) => {
         e.preventDefault();
-        let numero = document.querySelector("#numero").value;
-        for(let i = 1; i <= 10; i++){
-            alert(`${numero} x ${i} = ${numero*i}`);
+        let i = 1;
+        for(let j = 1; j < 21; j++){
+            if(j %2 != 0){
+                alert(i);
+                i += 4;
+            } 
+            if (j %2 == 0){
+                alert(i);
+                i -= 2;
+            } 
         }
     })
 })
