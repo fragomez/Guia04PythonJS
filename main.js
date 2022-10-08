@@ -2,25 +2,21 @@ addEventListener("DOMContentLoaded", (e) => {
     let calcular = document.querySelector("#guia4");
     calcular.addEventListener("submit", (e) => {
         e.preventDefault();
-        const iva = 0.16, descuento = 0.15, precio = 100000;
-        let total = 0;
-        let cantProductos = document.querySelector("#cantProductos").value;
-        for (let i = 1; i <= cantProductos; i++) {
-            total += precio;
+        let serie = document.querySelector("#serie").value;
+        let serie1 = 0, serie2 = 0;
+        for (let i = 1; i <= serie; i++) {
+            serie1 += Math.pow(i, 2);
+            serie2 += Math.pow(i, i);
         }
-        let totalPagar = total(total * iva);
-        if (totalPagar > 500000){
-            let totalDescuento = totalPagar - (totalPagar * descuento);
-            document.querySelector("#resultado").innerHTML = `El total a pagar es: ${totalDescuento}`;
-        } else {
-            document.querySelector("#resultado").innerHTML = `El total a pagar es: ${totalPagar}`;
-        }
+        document.querySelector("#serie1").innerHTML = `Serie 1: ${serie1}`;
+        document.querySelector("#serie2").innerHTML = `Serie 2: ${serie2}`;
     })  
 })
 
 function limpiar() {
     document.querySelector("#guia4").reset();
-    document.querySelector("#resultado").innerHTML = "";
+    document.querySelector("#serie1").innerHTML = "";
+    document.querySelector("#serie2").innerHTML = "";
 }
 
 addEventListener('reset', limpiar);
