@@ -2,30 +2,23 @@ addEventListener("DOMContentLoaded", (e) => {
     let calcular = document.querySelector("#guia4");
     calcular.addEventListener("submit", (e) => {
         e.preventDefault();
-        let cantEstudiantes = document.querySelector("#cantEstudiantes").value;
-        let notaFinal = 0, menor = 10, mayor = 0;
-        for(let i = 1; cantEstudiantes >= i; i++){
-            let calificacion = parseInt(prompt("Ingrese la calificación de la cafereria"));
-            notaFinal += calificacion;
-            if(calificacion > mayor){
-                mayor = calificacion;
-            } else if (calificacion < menor){
-                menor = calificacion;
+        let mensualidad = 0, total = 0;
+        for(let mes = 1; mes <= 20; mes++){
+            if(mes ==1){
+                mensualidad = 10;
             } else {
-                menor = calificacion;
+                mensualidad = mensualidad * 2;
             }
+            alert(`El pago en el mes ${mes} es: ${mensualidad}`)
+            
         }
-        let promedio = notaFinal / cantEstudiantes;
-        document.querySelector("#menor").innerHTML = `La calificación menor es: ${menor}`;
-        document.querySelector("#mayor").innerHTML = `La calificación mayor es: ${mayor}`; 
-        document.querySelector("#resultado").innerHTML = `La calificación promedio de la cafeteferia es: ${promedio}`
+        total += mensualidad;
+        document.querySelector("#resultado").innerHTML = `El pago total es: ${total}`
     })
 })
 
 function limpiar() {
     document.querySelector("#guia4").reset();
-    document.querySelector("#menor").innerHTML = "";
-    document.querySelector("#mayor").innerHTML = "";
     document.querySelector("#resultado").innerHTML = "";
 }
 
