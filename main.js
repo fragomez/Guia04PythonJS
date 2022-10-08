@@ -2,34 +2,33 @@ addEventListener("DOMContentLoaded", (e) => {
     let calcular = document.querySelector("#guia4");
     calcular.addEventListener("submit", (e) => {
         e.preventDefault();
-        let ventasMayores = 0, ventasMayores500 = 0, ventasMenores = 0, totalVentas = 0;
-        let cantVentas = document.querySelector("#cantVentas").value;
-        for(let i = 1; i <= cantVentas; i++){
-            let venta = parseInt(prompt("Ingrese el valor de la venta " + i));
-            if(venta > 1000){
-                ventasMayores++;
+        let trabajadores = document.querySelector("#cantTrabajadores");
+        for(let i = 1; i <= trabajadores; i++){
+            let nombreTrabajador = prompt("Ingrese el nombre del trabajador " + i);
+            let sueldoTrabajador = parseInt(prompt("Ingrese el sueldo del trabajador " + i));
+            let tiempoServicio = parseInt(prompt("Ingrese el tiempo de servicio del trabajador " + i));
+            if(tiempoServicio >=1 && tiempoServicio < 5){
+                sueldoTrabajador = sueldoTrabajador + 100;
+                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
             }
-            if(venta > 500 && venta <= 1000){
-                ventasMayores500++;
+            if(tiempoServicio >= 5 && tiempoServicio < 10){
+                sueldoTrabajador = sueldoTrabajador + 250;
+                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
             }
-            if(venta <= 500){
-                ventasMenores++;
+            if(tiempoServicio >= 10 && tiempoServicio < 20){
+                sueldoTrabajador = sueldoTrabajador + 400;
+                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
             }
-            totalVentas += venta;
+            if(tiempoServicio >= 20){
+                sueldoTrabajador = sueldoTrabajador + 550;
+                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
+            }
         }
-        
-        document.querySelector("#mayores").innerHTML = `Total de ventas mayores a 1000: ${ventasMayores}`;
-        document.querySelector("#mayores500").innerHTML = `Total de ventas mayores a 500 pero menores o iguales a 1000: ${ventasMayores500}`;
-        document.querySelector("#menores").innerHTML = `Total de ventas menores a 500: ${ventasMenores}`;
-        document.querySelector("#resultado").innerHTML = `Total de ventas: ${totalVentas}`;
     })
 })
 
 function limpiar() {
     document.querySelector("#guia4").reset();
-    document.querySelector("#mayores").innerHTML = "";
-    document.querySelector("#mayores500").innerHTML = "";
-    document.querySelector("#menores").innerHTML = "";
     document.querySelector("#resultado").innerHTML = "";
 }
 

@@ -12,21 +12,22 @@
 </head>
 
 <body>
-    <h1>5. Un empleado de la tienda “Tiki Taka” realiza N ventas durante el día, se requiere saber cuántas de
-        ellas fueron mayores a $1000, cuántas fueron mayores a $500 pero menores o iguales a $1000, y
-        cuántas fueron menores o iguales a $500. Además, se requiere saber el monto de lo vendido en cada
-        categoría y de forma global. Realice un algoritmo que permita determinar lo anterior.</h1>
+    <h1>6. En una empresa de 100 trabajadores, se hará un aumento al salario de acuerdo al tiempo de servicio,
+        para este aumento se tomará en cuenta lo siguiente:
+        - Tiempo de servicio: de 1 a 5 años Aumento: 100 PESOS
+        - Tiempo de servicio: de 5 a 10 años Aumento: 250 PESOS
+        - Tiempo de servicio: de 10 a 20 años Aumento: 400 PESOS.
+        - Tiempo de servicio: de 20 años a más Aumento: 550 PESOS.</h1>
         <div class="contenedor">
             <div class="variables">
                 <form id="guia4">
                     <div class="operaciones">
-                        <input id="cantVentas" type="number" autofocus required placeholder="Ingrese la cantidad de ventas">
+                        <input id="cantTrabajadores" type="number" autofocus required placeholder="Ingrese la cantidad de trabajadores">
                         <button id="calcular" type="submit">Calcular</button>
                         <button id="limpiar" type="reset">Limpiar</button>
                     </div>
-                    <div class="resultado" id="mayores"></div>
-                    <div class="resultado" id="mayores500"></div>
-                    <div class="resultado" id="menores"></div>
+                    <div class="resultado" id="menor"></div>
+                    <div class="resultado" id="mayor"></div>
                     <div class="resultado" id="resultado"></div>
                 </form>
             </div>
