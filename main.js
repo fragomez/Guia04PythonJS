@@ -2,29 +2,23 @@ addEventListener("DOMContentLoaded", (e) => {
     let calcular = document.querySelector("#guia4");
     calcular.addEventListener("submit", (e) => {
         e.preventDefault();
-        let trabajadores = document.querySelector("#cantTrabajadores");
-        for(let i = 1; i <= trabajadores; i++){
-            let nombreTrabajador = prompt("Ingrese el nombre del trabajador " + i);
-            let sueldoTrabajador = parseInt(prompt("Ingrese el sueldo del trabajador " + i));
-            let tiempoServicio = parseInt(prompt("Ingrese el tiempo de servicio del trabajador " + i));
-            if(tiempoServicio >=1 && tiempoServicio < 5){
-                sueldoTrabajador = sueldoTrabajador + 100;
-                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
+        let angulo = document.querySelector("#angulo").value;
+        let serie = document.querySelector("#serie").value;
+        let resultado = 0, numero = 3, factor = 1;
+        for (let i = 1; i <= serie; i++) {
+            for (let j = 1; j <= numero; j++) {
+                factor *= j;
             }
-            if(tiempoServicio >= 5 && tiempoServicio < 10){
-                sueldoTrabajador = sueldoTrabajador + 250;
-                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
-            }
-            if(tiempoServicio >= 10 && tiempoServicio < 20){
-                sueldoTrabajador = sueldoTrabajador + 400;
-                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
-            }
-            if(tiempoServicio >= 20){
-                sueldoTrabajador = sueldoTrabajador + 550;
-                document.querySelector("#resultado").innerHTML = `El sueldo total del trabajador es: ${sueldoTrabajador}`;
+            if (i % 2 == 0) {
+                resultado += (angulo * numero) / factor;
+                numero += 2;
+            } else {
+                resultado -= (angulo * numero) / factor;
+                numero += 2;
             }
         }
-    })
+        document.querySelector("#resultado").innerHTML = `El seno del ángulo ${angulo} es: ${resultado}`;
+    })  
 })
 
 function limpiar() {
