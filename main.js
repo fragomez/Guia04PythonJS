@@ -2,23 +2,34 @@ addEventListener("DOMContentLoaded", (e) => {
     let calcular = document.querySelector("#guia4");
     calcular.addEventListener("submit", (e) => {
         e.preventDefault();
-        let mensualidad = 0, total = 0;
-        for(let mes = 1; mes <= 20; mes++){
-            if(mes ==1){
-                mensualidad = 10;
-            } else {
-                mensualidad = mensualidad * 2;
+        let ventasMayores = 0, ventasMayores500 = 0, ventasMenores = 0, totalVentas = 0;
+        let cantVentas = document.querySelector("#cantVentas").value;
+        for(let i = 1; i <= cantVentas; i++){
+            let venta = parseInt(prompt("Ingrese el valor de la venta " + i));
+            if(venta > 1000){
+                ventasMayores++;
             }
-            alert(`El pago en el mes ${mes} es: ${mensualidad}`)
-            
+            if(venta > 500 && venta <= 1000){
+                ventasMayores500++;
+            }
+            if(venta <= 500){
+                ventasMenores++;
+            }
+            totalVentas += venta;
         }
-        total += mensualidad;
-        document.querySelector("#resultado").innerHTML = `El pago total es: ${total}`
+        
+        document.querySelector("#mayores").innerHTML = `Total de ventas mayores a 1000: ${ventasMayores}`;
+        document.querySelector("#mayores500").innerHTML = `Total de ventas mayores a 500 pero menores o iguales a 1000: ${ventasMayores500}`;
+        document.querySelector("#menores").innerHTML = `Total de ventas menores a 500: ${ventasMenores}`;
+        document.querySelector("#resultado").innerHTML = `Total de ventas: ${totalVentas}`;
     })
 })
 
 function limpiar() {
     document.querySelector("#guia4").reset();
+    document.querySelector("#mayores").innerHTML = "";
+    document.querySelector("#mayores500").innerHTML = "";
+    document.querySelector("#menores").innerHTML = "";
     document.querySelector("#resultado").innerHTML = "";
 }
 
